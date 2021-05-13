@@ -30,7 +30,7 @@ const renderHTML = function(data) {
   movies.innerHTML = '';
   items.forEach(item => {
     // console.log(item.imdbID);
-    const url = `http://www.omdbapi.com/?i=${item.imdbID}&apikey=cdc0bda4`;
+    const url = `https://www.omdbapi.com/?i=${item.imdbID}&apikey=cdc0bda4`;
     getMovieInfo(url)
     .then(detail => renderOneMovie(detail))
     .catch(err=>console.log(err));
@@ -41,7 +41,7 @@ search.addEventListener('keyup', function(event) {
   if (event.keyCode === 13) {
     let description = event.target.closest('input').value;
     if (description.trim().length > 0) {
-      const url = `http://www.omdbapi.com/?s=${description}&r=json&apikey=cdc0bda4`;
+      const url = `https://www.omdbapi.com/?s=${description}&r=json&apikey=cdc0bda4`;
       getMovieInfo(url)
       .then(data => renderHTML(data))
       .catch(err => console.log(err));
@@ -52,7 +52,7 @@ search.addEventListener('keyup', function(event) {
   }
 })
 
-const firstUrl = `http://www.omdbapi.com/?s=batman&r=json&apikey=cdc0bda4`
+const firstUrl = `https://www.omdbapi.com/?s=batman&r=json&apikey=cdc0bda4`
 getMovieInfo(firstUrl)
 .then(data => renderHTML(data))
 .catch(err => console.log(err));
